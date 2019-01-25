@@ -16,12 +16,13 @@ public class Pelaaja : MonoBehaviour
     }
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        moveVelocity = moveInput.normalized * speed;
+    
     }
 
     void FixedUpdate()
     {
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveVelocity = moveInput.normalized * speed;
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
 }
